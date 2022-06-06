@@ -20,13 +20,11 @@ export class MiServicioService {
   })
   constructor() { }
 
-  muestraPromesa(){
+  muestraPromesa(value:string){
     return new Promise((resolve,reject)=>{
-      if(this.name){
-        return resolve([{name:'promesa'}]);
-      }
-      return reject({message: 'error'});
-    })
+      setTimeout(() => resolve(value), 3000);
+    }
+)
   }
 
 

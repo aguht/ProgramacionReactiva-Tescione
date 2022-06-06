@@ -23,15 +23,11 @@ export class AppComponent implements OnInit {
   recibirDato() {
     this.servicio.checkData()
     .pipe(delay(2000),map((char)=>char.toUpperCase()))
-    .subscribe(
-      val=>{
-	console.log(val);
-      }
-    ) 
+    .subscribe(val=>{console.log(val);}) 
   }
 
   muestra(){
-    this.servicio.muestraPromesa()
+    this.servicio.muestraPromesa('promesa')
     .then((x)=>{console.log(x)})
     .catch((error)=>console.log(error))
   }
