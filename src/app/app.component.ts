@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { delay, map, subscribeOn } from 'rxjs';
+import { delay, map, Observable, subscribeOn } from 'rxjs';
 import { MiServicioService } from './services/mi-servicio.service';
 
 @Component({
@@ -11,9 +11,8 @@ import { MiServicioService } from './services/mi-servicio.service';
 
 export class AppComponent implements OnInit {
 
-  constructor(private servicio: MiServicioService) {
-    console.log(servicio.fontSize);
-  }
+  constructor(private servicio: MiServicioService) {}
+
 
   ngOnInit(): void {
       this.recibirDato();

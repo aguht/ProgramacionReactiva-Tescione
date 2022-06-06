@@ -6,8 +6,6 @@ import { delay, map, Observable, of } from 'rxjs';
 })
 export class MiServicioService {
 
-  name:string;
-  fontSize=20;
   observableToCheck = new Observable((observer)=>{
     try{
       observer.next('aaaaaaaaa');
@@ -23,10 +21,9 @@ export class MiServicioService {
   muestraPromesa(value:string){
     return new Promise((resolve,reject)=>{
       setTimeout(() => resolve(value), 3000);
-    }
-)
+      }
+    )
   }
-
 
   checkData(): Observable<any>{
     return this.observableToCheck;
