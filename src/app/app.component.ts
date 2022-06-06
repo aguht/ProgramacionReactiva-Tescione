@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
       this.recibirDato();
+      this.muestra();
   }
 
   recibirDato() {
@@ -26,8 +27,13 @@ export class AppComponent implements OnInit {
       val=>{
 	console.log(val);
       }
-    )
-    
+    ) 
+  }
+
+  muestra(){
+    this.servicio.muestraPromesa()
+    .then((x)=>{console.log(x)})
+    .catch((error)=>console.log(error))
   }
 
 }

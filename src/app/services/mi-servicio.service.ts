@@ -6,6 +6,7 @@ import { delay, map, Observable, of } from 'rxjs';
 })
 export class MiServicioService {
 
+  name:string;
   fontSize=20;
   observableToCheck = new Observable((observer)=>{
     try{
@@ -18,6 +19,16 @@ export class MiServicioService {
     observer.complete();
   })
   constructor() { }
+
+  muestraPromesa(){
+    return new Promise((resolve,reject)=>{
+      if(this.name){
+        return resolve([{name:'promesa'}]);
+      }
+      return reject({message: 'error'});
+    })
+  }
+
 
   checkData(): Observable<any>{
     return this.observableToCheck;
