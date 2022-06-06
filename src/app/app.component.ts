@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { delay, map, subscribeOn } from 'rxjs';
+import { MiServicioService } from './services/mi-servicio.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'entrega5';
+
+
+export class AppComponent implements OnInit {
+
+  constructor(private servicio: MiServicioService) {
+    console.log(servicio.fontSize);
+  }
+
+  ngOnInit(): void {
+      this.recibirDato();
+  }
+
+  recibirDato() {
+    this.servicio.checkData()
+    .pipe(delay(2000),map((char)=>char.toUpperCase()))
+    .subscribe(
+      val=>{
+	console.log(val);
+      }
+    )
+    
+  }
+
 }
